@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <!-- Linking the CSS which is now in the same public directory under css/ -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#hero" class="nav-logo"></a> <!-- Name injected by JS -->
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li> 
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero" id="hero">
+        <div class="container">
+            <p style="color: var(--primary-color); margin-bottom: 0.5rem;">Hi, my name is</p>
+            <h1></h1> <!-- Name injected by JS -->
+            <h2 class="subtitle"></h2> <!-- Title injected by JS -->
+            <p id="hero-summary"></p> <!-- Summary injected by JS -->
+            <div class="social-links">
+                <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="container">
+            <h2><i class="fas fa-user-circle"></i> About Me</h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <!-- Paragraphs injected by JS -->
+                    <blockquote><em></em></blockquote> <!-- Quote injected by JS -->
+                    
+                    <a href="files/CV.pdf" class="btn" target="_blank">
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
+                </div>
+                <div class="about-image">
+                    <img src="images/profile.jpg" alt="Profile Photo">
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="container">
+            <h2><i class="fas fa-cogs"></i> Skills</h2>
+            <div class="skills-grid">
+                <!-- Skill tags injected by JS -->
+            </div>
+        </section>
+
+        <section id="experience" class="container">
+            <h2><i class="fas fa-briefcase"></i> Experience</h2>
+            <div class="experience-list">
+                <!-- Experience cards injected by JS -->
+            </div> 
+        </section>
+
+        <section id="projects" class="container">
+            <h2><i class="fas fa-project-diagram"></i> My Projects</h2>
+            <div class="projects-grid">
+                <!-- Project cards injected by JS -->
+            </div>
+            
+            <div class="show-more-container">
+                <button id="toggle-projects-btn" class="btn">Tampilkan Lebih Banyak</button>
+            </div>
+        </section>
+
+        <section id="contact" class="container">
+            <div class="contact-content">
+                <h2><i class="fas fa-paper-plane"></i> Get In Touch</h2>
+                <p>
+                    Saya saat ini sedang mencari peluang baru.
+                    Kotak masuk saya selalu terbuka, jangan ragu untuk menghubungi!
+                </p>
+                <a href="#" class="btn" aria-label="Email">Say Hello</a>
+            </div>
+        </section>
+
+        <!-- Dynamic Modal for Project/Experience Detail -->
+        <div id="detail-modal" class="modal">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                
+                <img id="modal-image" src="" alt="Project Banner" style="display:none;">
+
+                <div class="modal-content-inner"> 
+                    <div class="modal-header" style="display:none;">
+                        <img id="modal-icon" src="" alt="Logo">
+                        <div class="modal-header-text">
+                            <h2 id="modal-title-icon"></h2>
+                            <p id="modal-subtitle"></p>
+                        </div>
+                    </div>
+
+                    <h2 id="modal-title-text" style="display:none;"></h2>
+                    <p id="modal-description"></p>
+
+                    <div id="modal-tech-container" style="display:none;">
+                        <strong>Tech Stack:</strong>
+                        <div id="modal-tech-tags" class="skills-grid"></div>
+                    </div>
+                </div>
+                
+                <div id="modal-links" class="project-links" style="display:none;">
+                    <a id="modal-github" href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    <a id="modal-live" href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p></p> <!-- Footer year injected by JS -->
+        </div>
+    </footer>
+
+    <!-- Load Data and Renderer -->
+    <script src="js/data.js"></script>
+    <script src="js/render.js"></script>
+
+</body>
+</html>

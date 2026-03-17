@@ -1,0 +1,558 @@
+/* ===== Google Fonts ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* ===== CSS Variables ===== */
+:root {
+    --bg-color: #121212;
+    --card-color: #1e1e1e;
+    --card-hover-color: #2a2a2a;
+    --border-color: #333333;
+    --text-color: #e0e0e0;
+    --primary-color: #64ffda; /* Mint Green */
+    --secondary-color: #90caf9; /* Light Blue */
+    --accent-color: #ffab91;   /* Peach */
+    --header-font: 'Poppins', 'Segoe UI', sans-serif;
+    --body-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== Base Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+/* PERBAIKAN SIMETRI:
+   Semua 'section' (About, Skills, Experience, Projects, Contact)
+   sekarang memiliki 'container' di dalamnya.
+   Ini memastikan semua 'h2' dan konten memiliki 'max-width' 
+   dan 'padding' yang sama.
+*/
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 2rem;
+        margin-top: 20px;
+
+}
+
+h1, h2, h3 {
+    font-family: var(--header-font);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+h1 { font-size: 3rem; color: var(--primary-color); }
+h2 { font-size: 2.2rem; color: var(--secondary-color); margin-bottom: 2rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--border-color); }
+h3 { font-size: 1.3rem; color: var(--accent-color); }
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+/* PERBAIKAN SPASI: 
+   Setiap 'section' memiliki padding 4rem di atas dan bawah,
+   memberi jarak yang konsisten antar bagian.
+*/
+section {
+    padding: 5rem 0;
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-top: 1rem; /* Memberi jarak dari elemen di atasnya */
+}
+
+.btn:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+}
+.btn i {
+    margin-right: 0.5rem;
+}
+
+/* Class untuk semua kartu yang bisa diklik */
+.clickable-card {
+    cursor: pointer;
+}
+
+
+/* ===== Navigation Bar ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(30, 30, 30, 0.85);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.nav-logo {
+    font-family: var(--header-font);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-menu a {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.nav-menu a:hover {
+    color: var(--primary-color);
+}
+
+/* ===== Hero Section ===== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+.hero h1 { margin-bottom: 1rem; }
+.hero .subtitle { font-size: 1.8rem; color: var(--secondary-color); font-weight: 400; margin-bottom: 1rem; }
+.hero p { font-size: 1.1rem; max-width: 600px; margin-bottom: 2rem; }
+.social-links a { font-size: 1.8rem; margin-right: 1.5rem; color: var(--text-color); }
+.social-links a:hover { color: var(--primary-color); }
+
+/* ===== ABOUT SECTION (DENGAN FOTO) ===== */
+.about-content {
+    display: flex;
+    flex-wrap: wrap; /* Agar responsif di HP */
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.about-text {
+    flex: 2; /* Teks mengambil 2/3 bagian */
+    min-width: 300px; /* Lebar minimum untuk teks */
+}
+
+.about-image {
+    flex: 1; /* Gambar mengambil 1/3 bagian */
+    min-width: 250px; /* Lebar minimum untuk gambar */
+    text-align: center;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 300px; /* Batas ukuran foto */
+    border-radius: 8px;
+    border: 3px solid var(--border-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+blockquote {
+    color: #a5d6a7;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+/* ===== Skills Section ===== */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skill-tag {
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    transform: translateY(-3px);
+}
+
+/* =================================
+   STYLING BAGIAN EXPERIENCE (Horizontal Scroll)
+   ================================= */
+/* Kontainer scroll horizontal */
+.experience-list {
+    display: flex;
+    overflow-x: auto;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+        margin-top: 20px;
+
+}
+.experience-list::-webkit-scrollbar { display: none; }
+
+/* Kartu individu di dalam scroller */
+.experience-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background-color: var(--card-color); 
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid transparent;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    width: 80%;
+    max-width: 350px;
+    scroll-snap-align: start;
+}
+.experience-card:hover {
+    transform: translateY(-5px);
+    border-left-color: var(--primary-color);
+    background-color: var(--card-hover-color);
+}
+.experience-logo { flex-shrink: 0; width: 60px; height: 60px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; background-color: #f0f0f0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.experience-logo img { width: 100%; height: 100%; object-fit: contain; }
+.experience-details h3 { margin: 0; font-size: 1.25rem; color: var(--accent-color); }
+.experience-details .company-duration { font-size: 0.9rem; font-style: italic; color: var(--primary-color); margin-bottom: 0.5rem; }
+.experience-details p { margin: 0; line-height: 1.6; }
+
+
+/* =================================
+   PROJECTS SECTION (UI MODERN)
+   ================================= */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: var(--card-color);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    background-color: var(--card-hover-color);
+}
+
+.project-image {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+}
+.project-content h3 {
+    margin-bottom: 0.5rem;
+}
+.project-content p {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.project-tech-tags {
+    padding: 0 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tech-tag {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+/* Style untuk link di footer kartu */
+.project-links {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 1rem;
+    background-color: rgba(0,0,0,0.1);
+}
+
+.project-link-btn {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+.project-link-btn:hover {
+    color: var(--primary-color);
+    opacity: 1;
+}
+.project-link-btn i {
+    margin-right: 0.5rem;
+}
+
+/* ===== Contact Section ===== */
+.contact-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.contact-content p {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border-color);
+    margin-top: 2rem; /* Memberi jarak dari section terakhir */
+    font-size: 0.9rem;
+}
+
+/* =================================
+   STYLING MODAL (GENERIC)
+   ================================= */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: var(--card-color);
+    margin: 10% auto;
+    padding: 0; /* Padding diatur oleh inner wrapper */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    width: 80%;
+    max-width: 700px;
+    position: relative;
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
+    overflow: hidden; 
+}
+
+.modal-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 1001; 
+}
+.modal-close:hover,
+.modal-close:focus {
+    color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content-inner {
+    padding: 2rem;
+}
+
+/* Banner Image (Project) */
+#modal-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+    background-color: #333;
+    display: none; 
+}
+
+/* Header Ikon (Experience) */
+.modal-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+#modal-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+#modal-title-icon {
+    color: var(--primary-color);
+    margin-bottom: 0.25rem;
+    border-bottom: none;
+}
+#modal-subtitle {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--secondary-color);
+}
+
+/* Judul Teks (Project) */
+#modal-title-text {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    border-bottom: none; /* Pastikan tidak ada border */
+}
+
+#modal-description {
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    white-space: pre-line; /* Agar \n dari JS berfungsi */
+}
+
+/* Konten Modal (Project Tech) */
+#modal-tech-container {
+    margin-bottom: 1.5rem;
+}
+#modal-tech-container strong {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    display: block;
+}
+#modal-tech-tags {
+    gap: 0.5rem;
+}
+#modal-tech-tags .skill-tag {
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+}
+
+/* Link Modal (Project) - pakai style .project-links */
+#modal-links {
+    margin: 0; 
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background-color: rgba(0,0,0,0.2);
+}
+
+
+/* =================================
+   CSS Untuk "Show More"
+   ================================= */
+.project-card.is-hidden {
+    display: none;
+}
+
+/* PERBAIKAN SPASI: Memberi jarak tombol dari grid & section contact */
+.show-more-container {
+    text-align: center;
+    margin-top: 2rem; /* Jarak dari grid proyek di atasnya */
+}
+
+/* ===== Media Queries for Responsiveness ===== */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.8rem; }
+    
+    .nav-menu { display: none; }
+    
+    .hero { text-align: center; }
+    .hero .social-links { justify-content: center; }
+
+    /* Agar gambar di atas teks di HP */
+    .about-content {
+        flex-direction: column-reverse;
+    }
+    .about-image {
+        margin-bottom: 1rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        width: 90%;
+        margin: 15% auto;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
